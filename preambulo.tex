@@ -1,0 +1,38 @@
+\documentclass[oneside,openany,letterpaper,12pt]{book}
+\pagestyle{plain}
+\usepackage{geometry}
+\geometry{top=2cm,bottom=2cm,left=1.5cm,right=2cm} % other options--margin,marginparwidth, landscape, a4paper
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,english]{babel}
+\usepackage{mathptmx}  % Letra Times New Roman; otros tipos de letra (e.g. lmodern)
+\usepackage{microtype} % mejor tipografía para pdflatex
+\usepackage{csquotes} % mejores comillas
+\usepackage[shortlabels]{enumitem} % añade mejor control para la configuración de listas
+\usepackage{booktabs} % mejores reglas horizontales para tablas
+\usepackage{array} % permite más control del tamaño de celdas en una tabla
+\usepackage{graphicx} % permite añadir y manejar imágenes en el documento
+\graphicspath{ {./imagenes/} } % localidad del archivo de imagenes
+\usepackage[style=authoryear-comp,sorting=nyt,natbib=true,backend=biber]{biblatex}
+\addbibresource{referencias.bib} % nombre del archivo con las referencias en formato bib(la)Tex
+\usepackage{setspace} % permite configurar los espacios de interlineado
+\doublespacing % configura el documento en espacio doble otros -- 
+\usepackage{blindtext}
+\usepackage{lipsum}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{titlesec}
+\usepackage{color}
+\definecolor{gray75}{gray}{0.75}
+\newcommand{\hspdiez}{\hspace{10pt}}
+\titleformat{\chapter}[hang]{\Large\bfseries}{\thechapter\hspdiez}{0pt}{\Large\bfseries}
+\titleformat{\section} {\normalfont\bfseries} {\thesection.}{0.5em}{\normalfont\bfseries}
+
+
+\usepackage{pdflscape} % cambia la orientación de la página deseada
+%\usepackage{parskip} % maneja la identación de los párrafos, mirar mejor
+%\usepackage{url}
+
+%\usepackage{todonotes} % add notes of things to add to the manuscript
+
+% % handle line spacing
+%\usepackage{verbatim} % add multi line comments
