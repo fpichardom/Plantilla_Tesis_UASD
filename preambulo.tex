@@ -1,10 +1,29 @@
-\documentclass[oneside,openany,letterpaper,12pt]{book}
-\pagestyle{plain}
-\usepackage{geometry}
-\geometry{top=2cm,bottom=2cm,left=1.5cm,right=2cm} % other options--margin,marginparwidth, landscape, a4paper
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[spanish,english]{babel}
+%%%%%%%%%%%%%%% Seleccion del tipo de documento y formato de página%%%%%%%%%%%%%
+\documentclass[oneside,%
+               openany,% los capítulos pueden empezar en cualquier página
+               letterpaper,% tamaño de papel ocho y medio por onze
+               12pt]% tamaño de letra normal de 12pt 
+               {book} % clase libro
+\usepackage{geometry} % permite dar opciones de configuración de página
+\geometry{top=1in,% tamaño del margen superior
+          bottom=1in,% tamaño del margen inferior
+          left=1.5in,% tamaño del margen izquierdo
+          right=1in}% tamaño del margen derecho
+          % -- margin,marginparwidth, landscape,a4paper
+%%%%%%%%%%%%%%%%%% Configuración de los encabezados de capítulos, secciones y demás%%%%%%%%%%%%%
+\usepackage{titlesec} % permite modificar los encabezados de las distintas partes del documento
+\usepackage{color}% permite añadir colores al documento
+\definecolor{gray75}{gray}{0.75} %define el comando para un color
+\newcommand{\hspdiez}{\hspace{10pt}} % crea un nuevo comando para dejar un espacio horizontal de 10 pt
+\titleformat{\chapter}[hang]{\centering\Large\bfseries}{\thechapter.\hspdiez}{0pt}{\Large\bfseries}
+\titleformat{\section} {\normalfont\bfseries} {\thesection.}{0.5em}{\normalfont\bfseries}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\pagestyle{plain} % estilo de página sin numeración hasta que se indique lo contrario
+\usepackage[utf8]{inputenc} % compatibilidad con encoding utf8, de manera que se pueden codificar directamente ciertos caracteres especiales en latex como los acentos
+\usepackage[T1]{fontenc} % paquete relacionado con el encoding de las letras en el documento
+\usepackage[spanish,english]{babel} %permite la compatibilidad con diferentes idiomas
 \usepackage{mathptmx}  % Letra Times New Roman; otros tipos de letra (e.g. lmodern)
 \usepackage{microtype} % mejor tipografía para pdflatex
 \usepackage{csquotes} % mejores comillas
@@ -13,26 +32,25 @@
 \usepackage{array} % permite más control del tamaño de celdas en una tabla
 \usepackage{graphicx} % permite añadir y manejar imágenes en el documento
 \graphicspath{ {./imagenes/} } % localidad del archivo de imagenes
+%%%%%%%%%%%%%%%%%%%%% Configuración de la bibliografía %%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[style=authoryear-comp,sorting=nyt,natbib=true,backend=biber]{biblatex}
 \addbibresource{referencias.bib} % nombre del archivo con las referencias en formato bib(la)Tex
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{setspace} % permite configurar los espacios de interlineado
-\doublespacing % configura el documento en espacio doble otros -- 
-\usepackage{blindtext}
+\doublespacing % configura el documento en espacio doble --
+\usepackage{lipsum} % permite introducir texto Lorem Ipsum para probar el formato de la página
+\usepackage{indentfirst} % Crea una sangría en el primer párrafo de cada capítulo, si se desea el estilo predeterminado comentar esta línea
+\setlength\parindent{5ex} % argumento para modificar el tamaño de las sangrías en el texto. Comentar esta línea para obtener el valor predeterminado
+\usepackage{siunitx} % configura unidades de medidas en ciencia
 \usepackage{lipsum}
-\usepackage[colorlinks=true, allcolors=blue]{hyperref}
-\usepackage{titlesec}
-\usepackage{color}
-\definecolor{gray75}{gray}{0.75}
-\newcommand{\hspdiez}{\hspace{10pt}}
-\titleformat{\chapter}[hang]{\Large\bfseries}{\thechapter\hspdiez}{0pt}{\Large\bfseries}
-\titleformat{\section} {\normalfont\bfseries} {\thesection.}{0.5em}{\normalfont\bfseries}
-
-
 \usepackage{pdflscape} % cambia la orientación de la página deseada
+
+%%%%%%%%%%%%%%%% Paquetes opcionales, chequear la describción %%%%%%%%%%%%%%%%%%%%%%
 %\usepackage{parskip} % maneja la identación de los párrafos, mirar mejor
-%\usepackage{url}
-
+%\usepackage{url} % mejor compatibilidad con enlaces url en el texto
 %\usepackage{todonotes} % add notes of things to add to the manuscript
-
+%\usepackage{verbatim} % permite crear comentarios multilínea
 % % handle line spacing
-%\usepackage{verbatim} % add multi line comments
+
+\usepackage[colorlinks=true, allcolors=black]{hyperref}
