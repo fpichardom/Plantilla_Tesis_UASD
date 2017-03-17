@@ -1,4 +1,5 @@
 # Plantilla_Tesis_UASD
+
 Plantilla para tesis de licenciatura en biologia de la UASD
 
 ## Como utilizar la plantilla
@@ -15,6 +16,7 @@ Aunque existen editores especializados para facilitar la escritura en LaTeX.
 Algunos de ellos son [TeXstudio](http://www.texstudio.org/) y [Texmaker](http://www.xm1math.net/texmaker/)
 
 ## Bugs conocidos
+
 Al parecer el la versión 2.10.1 del paquete titlesec tiene un bug.
 Esta es la versión incluida en Texlive 2016.
 Por lo que se incluye entre los archivos las versión 2.10.2 de [titlesec](https://www.ctan.org/pkg/titlesec).
@@ -43,16 +45,29 @@ Por lo que se incluye entre los archivos las versión 2.10.2 de [titlesec](https
 ## Guías, Tutoriales y Manuales de LaTeX
 
 ### Español
+
 1. [Introducción a LaTeX](http://pcmap.unizar.es/~pilar/latex.pdf)
 2. [Curso de LaTeX](http://matematicas.uclm.es/earanda/wp-content/uploads/downloads/2013/10/latex.pdf)
 3. [Tutorial de LaTeX](http://www2.dis.ulpgc.es/~lalvarez/teaching/pi/latex/TutorialLatex.pdf)
 4. [Manual de LaTeX](https://es.wikibooks.org/wiki/Manual_de_LaTeX)
+
 ### Inglés
+
 1. [ShareLaTeX Documentation](https://www.sharelatex.com/learn)
 2. [LaTeX Wiki Book](https://en.wikibooks.org/wiki/LaTeX)
 
-### Reconocimiento
+## Reconocimientos
+
 El archivo .gitignore de este repositorio fué tomado del repositorio en github [gitignore](https://github.com/github/gitignore).
 
 El reglamento de tesis que se añade en este repositorio es de la autoría de la Prof. Ruth Bastardo de la Universidad Autónoma de Santo Domingo (UASD).
 Se incluye aquí para referencia del formato necesario que tiene que lograr esta plantilla para cumplir con los requisitos de la tesis de Biología de la UASD.
+
+## Falta por hacer
+
+1. Configurar biblatex siguiendo el reglamento para citar y crear la bibliografía.
+2. Configurar el estilo de la portada.
+3. Crear diversos ejemplos de citas, tablas y figuras.
+4. ...Cualquier sugerencia de cosas que falten por dar formato o cualquier inquietud o problema es bienvenida.
+
+Para Reportar problemas o inquietudes o hacer sugerencias pueden usar la pestaña [Issues](https://github.com/fpichardom/Plantilla_Tesis_UASD/issues).
