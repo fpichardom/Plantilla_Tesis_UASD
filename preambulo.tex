@@ -59,23 +59,32 @@
 %%%%%%%%%%%%%%%%%%%%% Configuración de la bibliografía %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage[%
-backend=biber,%
-style=authoryear-icomp,%
-sorting=nyt,%
-natbib=true,%
+backend=biber,% utiliza biber para procesar el archivo de bibliografía
+style=authoryear-icomp,% estilo de citas por autor y año
+sorting=nyt,% orden de las citas por nombre, año y título
+natbib=true,% permite compatibilidad con los comandos citep y citet de natbib
 uniquename=init,%
 giveninits,%
 hyperref=true,%
-maxbibnames=10,%
-maxnames=2]%
-{biblatex}
+maxbibnames=10,% permite un máximo de diez autores en a bibliografía
+maxnames=2]% permite un máximo de dos autores en la citas
+{biblatex} % paquete que permite la configuración de las citas bibliográficas
+
 \addbibresource{referencias.bib} % nombre del archivo con las referencias en formato bib(la)Tex
-\DefineBibliographyStrings{spanish}{andothers={et~al\adddot},bibliography={Literatura Citada}}
-\DeclareFieldFormat[article,inbook,incollection,inproceedings,patent,thesis,unpublished]{title}{#1\isdot}
+\DefineBibliographyStrings{spanish}{%
+	andothers={et~al\adddot},% las citas con más de dos autores terminarán en "et. al" y no en "y col." 
+	bibliography={Literatura Citada}} % cambia el título de la bibliografía por Literatura Citada
+\DeclareFieldFormat[article,inbook,incollection,inproceedings,patent,thesis,unpublished]{title}{#1\isdot} % remueve las comillas de los títulos en la bibliografía
+\DeclareFieldFormat[article]{journaltitle}{\textrm{#1}} % escribe el nombre de la revista en letra normal y no italizada
+
 \renewbibmacro{in:}{%
   \ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}}
-\DeclareDelimFormat[cbx@textcite]{nameyeardelim}{\addspace} % se necesita para compensar un bug de algunas versiones de biblatex donde cita de la manera autor, (año) en lugar de autor (año).
-\DeclareFieldFormat[article]{journaltitle}{\textrm{#1}}
+
+
+%%%%%%%%%%Declaración para biblatex 3.4 y biber 2.5%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%	SOLUCIÓN NO FUNCIONA PARA BIBLATEX 3.3 Y NO ES NECESARIO A PARTIR DE LA VERSIÓN 3.5
+\DeclareDelimFormat[cbx@textcite]{nameyeardelim}{\addspace} % se necesita para compensar un bug de la versión 3.4 biblatex donde cita de la manera autor, (año) en lugar de autor (año).
+
 %\DeclareNameAlias{sortname}{last-first}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
