@@ -9,7 +9,9 @@
 \geometry{top=1in,% tamaño del margen superior
           bottom=1in,% tamaño del margen inferior
           left=1.5in,% tamaño del margen izquierdo
-          right=1in}% tamaño del margen derecho
+          right=1in,% tamaño del margen derecho
+          %showframe
+          }% tamaño del margen derecho
           % -- margin,marginparwidth, landscape,a4paper
           
 %%%%%%%%%%%%%%%%%% Configuración de los encabezados de capítulos, secciones y demás%%%%%%%%%%%%%%%%%%%%%
@@ -52,17 +54,32 @@
 \usepackage{indentfirst} % Crea una sangría en el primer párrafo de cada capítulo, si se desea el estilo predeterminado comentar esta línea
 \setlength\parindent{5ex} % argumento para modificar el tamaño de las sangrías en el texto. Comentar esta línea para obtener el valor predeterminado
 \usepackage{siunitx} % configura unidades de medidas en ciencia
-\usepackage{lipsum}
 \usepackage{pdflscape} % cambia la orientación de la página deseada
 
 %%%%%%%%%%%%%%%%%%%%% Configuración de la bibliografía %%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage[style=authoryear-comp,sorting=nyt,natbib=true,backend=biber]{biblatex}
+\usepackage[%
+backend=biber,%
+style=authoryear-icomp,%
+sorting=nyt,%
+natbib=true,%
+uniquename=init,%
+giveninits,%
+hyperref=true,%
+maxbibnames=10,%
+maxnames=2]%
+{biblatex}
 \addbibresource{referencias.bib} % nombre del archivo con las referencias en formato bib(la)Tex
-
+\DefineBibliographyStrings{spanish}{andothers={et~al\adddot},bibliography={Literatura Citada}}
+\DeclareFieldFormat[article,inbook,incollection,inproceedings,patent,thesis,unpublished]{title}{#1\isdot}
+\renewbibmacro{in:}{%
+  \ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}}
+\DeclareDelimFormat[cbx@textcite]{nameyeardelim}{\addspace} % se necesita para compensar un bug de algunas versiones de biblatex donde cita de la manera autor, (año) en lugar de autor (año).
+\DeclareFieldFormat[article]{journaltitle}{\textrm{#1}}
+%\DeclareNameAlias{sortname}{last-first}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage[colorlinks=true, allcolors=black]{hyperref}
+\usepackage[colorlinks=true, allcolors=black]{hyperref} % permite la creación de links en el texto, es mejor cargar este paquete al final del preámbulo
 
 %%%%%%%%%%%%%%%% Paquetes opcionales, chequear la describción %%%%%%%%%%%%%%%%%%%%%%
 %\usepackage{parskip} % maneja la identación de los párrafos, mirar mejor
