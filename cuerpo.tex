@@ -1,5 +1,5 @@
 \input{preambulo}
-%\includeonly{} % utilizar para filtrar que capítulos mostrar en el texto
+%\includeonly{introduccion} % utilizar para filtrar que capítulos mostrar en el texto
 \begin{document}
 	
 \frontmatter
@@ -9,12 +9,12 @@
 \include{dedicatoria} % (opcional)
 \include{agradecimientos}
 
-\tableofcontents % índice general (obligatorio
+\tableofcontents % Índice general (obligatorio)
 %\listoftables % índice de tablas  (obligatorio si hay tablas)
 %\listoffigures % Índice de figuras (obligatorio si hay figuras)
 %
 \mainmatter
-
+\selectlanguage{spanish}
 \include{introduccion}
 \include{antecedentes}
 \include{justificacion}
@@ -24,9 +24,7 @@
 \include{discusion}
 \include{conclusion}
 \include{recomendaciones}
-
+\printbibliography[heading=bibintoc]
 \appendix
-
 \include{anexos}
-
 \end{document}
