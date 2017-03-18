@@ -63,6 +63,12 @@ El archivo .gitignore de este repositorio fué tomado del repositorio en github 
 El reglamento de tesis que se añade en este repositorio es de la autoría de la Prof. Ruth Bastardo de la Universidad Autónoma de Santo Domingo (UASD).
 Se incluye aquí para referencia del formato necesario que tiene que lograr esta plantilla para cumplir con los requisitos de la tesis de Biología de la UASD.
 
+## Limitaciones del reglamento de tesis
+
+El reglamento de tesis solo incluye como debe citarse cuando hay un autor o más de dos autores, pero no especifíca en el caso de dos autores como deben separarse estos, ya sea con la letra "y" o el símbolo "&". En este caso estoy dejando la separación con  "y" ya aparece de esta manera en la bibliografía para separar el último autor.
+
+De igual manera el reglamento de tesis solo se enfoca en la cita de artículos y libros pero no da indicaciones para páginas web, conferencias, tesis, reportes, mapas y demás. Si tienen sugerencias o hay algún consenso no oficial de como citar otras fuentes en la tesis de biología de la UASD pueden crear [Issues](https://github.com/fpichardom/Plantilla_Tesis_UASD/issues) indicando el formato sugerido, de manera que pueda ser incorporado a la plantilla.
+
 ## Falta por hacer
 
 1. Configurar biblatex siguiendo el reglamento para citar y crear la bibliografía.
