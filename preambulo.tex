@@ -65,20 +65,51 @@ sorting=nyt,% orden de las citas por nombre, año y título
 natbib=true,% permite compatibilidad con los comandos citep y citet de natbib
 uniquename=init,%
 giveninits,%
+url=false,%
+doi=false,%
 hyperref=true,%
 maxbibnames=10,% permite un máximo de diez autores en a bibliografía
 maxnames=2]% permite un máximo de dos autores en la citas
 {biblatex} % paquete que permite la configuración de las citas bibliográficas
+%\DeclareNameAlias{sortname}{last-first}
+%%%\DeclareFieldFormat[article]{title}{#1}
+%%%\DeclareFieldFormat[article]{journaltitle}{#1}
+\DeclareFieldFormat[book]{title}{#1}
+\DeclareFieldFormat[article]{pages}{#1}
+\DeclareFieldFormat[article,inbook,incollection,inproceedings,patent,thesis,unpublished]{title}{#1\isdot} % remueve las comillas de los títulos en la bibliografía
+\DeclareFieldFormat[article]{journaltitle}{#1} % escribe el nombre de la revista en letra normal y no italizada
+
+\renewbibmacro{in:}{%
+ \ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}}
+
+\usepackage{xpatch}
+\xpatchbibmacro{journal+issuetitle}{%
+  \setunit*{\addspace}%
+  \iffieldundef{series}}
+  {%
+  \setunit*{\addcomma\space}%
+  \iffieldundef{series}}{}{}
+
+\renewcommand\bibpagespunct{\ifentrytype{article}{\addcolon}{\addcomma}\space}
+\renewbibmacro*{volume+number+eid}{%
+  \printfield{volume}
+  \printfield[parens]{number}%
+  \setunit{\addcomma\space}%
+  \printfield{eid}}
+
+\xpatchbibmacro{date+extrayear}{%
+  \printtext[parens]%
+}{%
+  \setunit*{\addperiod\space}%
+  \printtext%
+}{}{}
 
 \addbibresource{referencias.bib} % nombre del archivo con las referencias en formato bib(la)Tex
 \DefineBibliographyStrings{spanish}{%
 	andothers={et~al\adddot},% las citas con más de dos autores terminarán en "et. al" y no en "y col." 
 	bibliography={Literatura Citada}} % cambia el título de la bibliografía por Literatura Citada
-\DeclareFieldFormat[article,inbook,incollection,inproceedings,patent,thesis,unpublished]{title}{#1\isdot} % remueve las comillas de los títulos en la bibliografía
-\DeclareFieldFormat[article]{journaltitle}{\textrm{#1}} % escribe el nombre de la revista en letra normal y no italizada
 
-\renewbibmacro{in:}{%
-  \ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}}
+
 
 
 %%%%%%%%%%Declaración para biblatex 3.4 y biber 2.5%%%%%%%%%%%%%%%%%%%%%%%%%%
