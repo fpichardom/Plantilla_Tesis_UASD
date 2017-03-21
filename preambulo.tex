@@ -52,7 +52,8 @@
 \doublespacing % configura el documento en espacio doble --
 \usepackage{lipsum} % permite introducir texto Lorem Ipsum para probar el formato de la página
 \usepackage{indentfirst} % Crea una sangría en el primer párrafo de cada capítulo, si se desea el estilo predeterminado comentar esta línea
-\setlength\parindent{5ex} % argumento para modificar el tamaño de las sangrías en el texto. Comentar esta línea para obtener el valor predeterminado
+\settowidth{\parindent}{~~~~~}% introduce una sangría de 5 espacios
+%\setlength\parindent{5ex} % argumento para modificar el tamaño de las sangrías en el texto. Comentar esta línea para obtener el valor predeterminado
 \usepackage{siunitx} % configura unidades de medidas en ciencia
 \usepackage{pdflscape} % cambia la orientación de la página deseada
 
