@@ -57,32 +57,39 @@
 \usepackage{siunitx} % configura unidades de medidas en ciencia
 \usepackage{pdflscape} % cambia la orientación de la página deseada
 
-%%%%%%%%%%%%%%%%%%%%% Configuración de la bibliografía %%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%%%%%%%%%%%%%%%%%%%%% Configuración de la bibliografía %%%%%%%%%%%%%%%%%%%%%%%%%%Confguración en Biblatex%%%%%%%%%
 \usepackage[%
 backend=biber,% utiliza biber para procesar el archivo de bibliografía
 style=authoryear-icomp,% estilo de citas por autor y año
 sorting=nyt,% orden de las citas por nombre, año y título
-natbib=true,% permite compatibilidad con los comandos citep y citet de natbib
-uniquename=init,%
-giveninits,%
-url=false,%
-doi=false,%
-hyperref=true,%
-maxbibnames=10,% permite un máximo de diez autores en a bibliografía
-maxnames=2]% permite un máximo de dos autores en la citas
+natbib=true,% permite compatibilidad con los comandos citep{} y citet{} de natbib
+uniquename=init,% crea la lista de nombres únicos incluyendo las iniciales
+giveninits,% usa las iniciales de los autores en la bibliografía
+url=false,% no imprime el url en la bibliografía
+doi=false,% no imprime el doi en la bibliografía
+isbn=false,% no imprime el isbn del libro
+hyperref=true,% permite links en la cita
+maxbibnames=99,% número de autores impresos en la bibliografía
+maxcitenames=2]% permite un máximo de dos autores en la citas
 {biblatex} % paquete que permite la configuración de las citas bibliográficas
 %\DeclareNameAlias{sortname}{last-first}
 %%%\DeclareFieldFormat[article]{title}{#1}
 %%%\DeclareFieldFormat[article]{journaltitle}{#1}
 \DeclareFieldFormat[book]{title}{#1}
 \DeclareFieldFormat[article]{pages}{#1}
+\DeclareFieldFormat[book,incollection,inbook]{pages}{#1 pp}
+%\DeclareFieldFormat{editor}{#1}
+\DeclareFieldFormat{booktitle}{#1}
 \DeclareFieldFormat[article,inbook,incollection,inproceedings,patent,thesis,unpublished]{title}{#1\isdot} % remueve las comillas de los títulos en la bibliografía
 \DeclareFieldFormat[article]{journaltitle}{#1} % escribe el nombre de la revista en letra normal y no italizada
-
+\DefineBibliographyStrings{spanish}{%
+	andothers={et~al\adddot},% las citas con más de dos autores terminarán en "et. al" y no en "y col." 
+	bibliography={Literatura Citada}} % cambia el título de la bibliografía por Literatura Citada
 \renewbibmacro{in:}{%
  \ifentrytype{article}{}{\printtext{\bibstring{in}\intitlepunct}}}
-
+%%%%%%%%%%%%%%%%fin biblatex%%%%%%%%%%%
+%%%%%%%%%% configuración bibliografía con xpatch%%%%%%
+%%Configuración artículo%%%%
 \usepackage{xpatch}
 \xpatchbibmacro{journal+issuetitle}{%
   \setunit*{\addspace}%
@@ -105,10 +112,31 @@ maxnames=2]% permite un máximo de dos autores en la citas
   \printtext%
 }{}{}
 
+%%% Configuración capítulo libro
+\DeclareNameAlias{editorin}{first-last}
+\newbibmacro*{byeditor:in}{%
+  \ifnameundef{editor}
+    {}
+    {\printnames[editorin]{editor}%
+     \addcomma\addspace%
+     \usebibmacro{editorstrg}}%
+     \clearname{editor}%
+     \printunit{\adddot\space}}
+     
+\xpatchbibdriver{incollection}
+  {\usebibmacro{in:}%
+   \usebibmacro{maintitle+booktitle}%
+   \newunit\newblock
+   \usebibmacro{byeditor+others}}
+  {\usebibmacro{in:}%
+   \usebibmacro{byeditor:in}%
+   \setunit{\labelnamepunct}\newblock
+   \usebibmacro{maintitle+booktitle}%
+   \newunit\newblock
+   \usebibmacro{byeditor}}
+  {}{}
+
 \addbibresource{referencias.bib} % nombre del archivo con las referencias en formato bib(la)Tex
-\DefineBibliographyStrings{spanish}{%
-	andothers={et~al\adddot},% las citas con más de dos autores terminarán en "et. al" y no en "y col." 
-	bibliography={Literatura Citada}} % cambia el título de la bibliografía por Literatura Citada
 
 
 
