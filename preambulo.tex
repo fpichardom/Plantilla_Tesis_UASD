@@ -10,19 +10,19 @@
           bottom=1in,% tamaño del margen inferior
           left=1.5in,% tamaño del margen izquierdo
           right=1in,% tamaño del margen derecho
-          %showframe
+          showframe
           }% tamaño del margen derecho
           % -- margin,marginparwidth, landscape,a4paper
           
 %%%%%%%%%%%%%%%%%% Configuración de los encabezados de capítulos, secciones y demás%%%%%%%%%%%%%%%%%%%%%
-
-\usepackage{titlesec} % permite modificar los encabezados de las distintas partes del documento
+%\usepackage{titletoc} % permite modificar el estilo del índice general
+\usepackage[tiny]{titlesec} % permite modificar los encabezados de las distintas partes del documento
 \usepackage{color}% permite añadir colores al documento
 \definecolor{gray75}{gray}{0.75} %define el comando para un color
 \newcommand{\hspdiez}{\hspace{10pt}} % crea un nuevo comando para dejar un espacio horizontal de 10 pt
 \titleformat{\chapter}[hang]{\centering\Large\bfseries}{\thechapter.\hspdiez}{0pt}{\Large\bfseries}
-\titleformat{\section}{\normalfont\bfseries}{\thesection.}{0.5em}{\normalfont\bfseries}
-\titlespacing{\chapter}{0pt}{0pt}{5ex}
+%\titleformat{\section}{\normalfont\bfseries}{\thesection.}{0.5em}{\normalfont\bfseries}
+\titlespacing{\chapter}{0pt}{-5ex}{5ex}
 %%%%%%%%%%%%%%%%%%%%%%%%%Configurar el encabezado y pie de página%%%%%%%%%%%%%%%%%%
 
 \usepackage{fancyhdr}
@@ -56,7 +56,7 @@
 %\setlength\parindent{5ex} % argumento para modificar el tamaño de las sangrías en el texto. Comentar esta línea para obtener el valor predeterminado
 \usepackage{siunitx} % configura unidades de medidas en ciencia
 \usepackage{pdflscape} % cambia la orientación de la página deseada
-
+\usepackage{etoc}
 %%%%%%%%%%%%%%%%%%%%% Configuración de la bibliografía %%%%%%%%%%%%%%%%%%%%%%%%%%Confguración en Biblatex%%%%%%%%%
 \usepackage[%
 backend=biber,% utiliza biber para procesar el archivo de bibliografía
