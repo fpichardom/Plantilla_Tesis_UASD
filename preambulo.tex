@@ -10,7 +10,7 @@
           bottom=1in,% tamaño del margen inferior
           left=1.5in,% tamaño del margen izquierdo
           right=1in,% tamaño del margen derecho
-          showframe
+          showframe=false % muestra los marcos de las cajas
           }% tamaño del margen derecho
           % -- margin,marginparwidth, landscape,a4paper
           
@@ -36,18 +36,13 @@
 \pagestyle{fancy}
 \setlength{\headheight}{15pt}
 %%%%%%%%%%%%%%%%%%%%%%%%Configuración general%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \usepackage[utf8]{inputenc} % compatibilidad con encoding utf8, de manera que se pueden codificar directamente ciertos caracteres especiales en latex como los acentos
 \usepackage[T1]{fontenc} % paquete relacionado con el encoding de las letras en el documento
-\usepackage[spanish,english]{babel} %permite la compatibilidad con diferentes idiomas
+\usepackage[spanish,es-tabla,english]{babel} %permite la compatibilidad con diferentes idiomas
 \usepackage{mathptmx}  % Letra Times New Roman; otros tipos de letra (e.g. lmodern)
 \usepackage{microtype} % mejor tipografía para pdflatex
 \usepackage{csquotes} % mejores comillas
 \usepackage[shortlabels]{enumitem} % añade mejor control para la configuración de listas
-\usepackage{booktabs} % mejores reglas horizontales para tablas
-\usepackage{array} % permite más control del tamaño de celdas en una tabla
-\usepackage{graphicx} % permite añadir y manejar imágenes en el documento
-\graphicspath{ {./imagenes/} } % localidad del archivo de imagenes
 \usepackage{setspace} % permite configurar los espacios de interlineado
 \doublespacing % configura el documento en espacio doble --
 \usepackage{lipsum} % permite introducir texto Lorem Ipsum para probar el formato de la página
@@ -56,8 +51,28 @@
 %\setlength\parindent{5ex} % argumento para modificar el tamaño de las sangrías en el texto. Comentar esta línea para obtener el valor predeterminado
 \usepackage{siunitx} % configura unidades de medidas en ciencia
 \usepackage{pdflscape} % cambia la orientación de la página deseada
-\usepackage{etoc}
-%%%%%%%%%%%%%%%%%%%%% Configuración de la bibliografía %%%%%%%%%%%%%%%%%%%%%%%%%%Confguración en Biblatex%%%%%%%%%
+\usepackage{etoc} % permite separar el índice general en partes (e.g. índice de anexos)
+\usepackage{verbatim} % permite hacer comentarios de varias líneas
+%%%%%%%%%%%%%Configuración de figuras y tablas%%%%%%%%%
+\usepackage{tabu} % crea un ambiente nuevo para tablas con más funciones
+\usepackage{booktabs} % mejores reglas horizontales para tablas
+\usepackage{array} % permite más control del tamaño de celdas en una tabla
+\usepackage{longtable} % permite tablas que se extiendan más de una página
+\usepackage{dcolumn}
+\newcolumntype{d}[1]{D{.}{\cdot}{#1} }
+\newcommand{\cabeza}[1]{\textbf{#1}}
+%\setlength{\extrarowheight}{5pt} % produce espacio extra entre las filas
+%\setlength{\abovetopsep}{1ex} % set space left above toprule
+\setlength{\heavyrulewidth}{1.5pt} % width of both top and bottom rule
+\usepackage[font=small,labelfont=bf,margin=1cm]{caption} % mejora el título de figuras y tablas
+\usepackage{chngcntr} % permite la numeración continua de las tablas y figuras
+\counterwithout{figure}{chapter} % numeración de las figuras no se reinicia con cada capítulo
+\counterwithout{table}{chapter} % numeración de las tablas no se reinicia con cada capítulo
+\usepackage{graphicx} % permite añadir y manejar imágenes en el documento
+\graphicspath{ {./imagenes/} } % localidad del archivo de imagenes
+\usepackage{subcaption} % permite múltiples figuras
+%%%%%%%%%%%%%%%%%%%%% Configuración de la bibliografía %%%%%%%%%%%%%%%%%
+%%%%%%%%%Confguración en Biblatex%%%%%%%%%
 \usepackage[%
 backend=biber,% utiliza biber para procesar el archivo de bibliografía
 style=authoryear-icomp,% estilo de citas por autor y año
