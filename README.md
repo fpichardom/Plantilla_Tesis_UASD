@@ -1,6 +1,6 @@
 # Plantilla_Tesis_UASD
 
-Plantilla para tesis de licenciatura en biologia de la UASD
+Plantilla para tesis de licenciatura en biología de la UASD
 
 ## Como utilizar la plantilla
 
@@ -54,6 +54,7 @@ NOTA: No he podido arreglarlo para la versión 3.3
 2. [Curso de LaTeX](http://matematicas.uclm.es/earanda/wp-content/uploads/downloads/2013/10/latex.pdf)
 3. [Tutorial de LaTeX](http://www2.dis.ulpgc.es/~lalvarez/teaching/pi/latex/TutorialLatex.pdf)
 4. [Manual de LaTeX](https://es.wikibooks.org/wiki/Manual_de_LaTeX)
+5. [Edición de textos científicos: LaTeX 2014](http://tecdigital.tec.ac.cr/revistamatematica/Libros/LATEX/LaTeX_2014.pdf)
 
 ### Inglés
 
@@ -69,15 +70,13 @@ Se incluye aquí para referencia del formato necesario que tiene que lograr esta
 
 ## Limitaciones del reglamento de tesis
 
-El reglamento de tesis solo incluye como debe citarse cuando hay un autor o más de dos autores, pero no especifíca en el caso de dos autores como deben separarse estos, ya sea con la letra "y" o el símbolo "&". En este caso estoy dejando la separación con  "y" ya aparece de esta manera en la bibliografía para separar el último autor.
+1. El reglamento de tesis solo incluye como debe citarse cuando hay un autor o más de dos autores, pero no especifíca en el caso de dos autores como deben separarse estos, ya sea con la letra "y" o el símbolo "&". En este caso estoy dejando la separación con  "y" ya aparece de esta manera en la bibliografía para separar el último autor.
 
-De igual manera el reglamento de tesis solo se enfoca en la cita de artículos y libros pero no da indicaciones para páginas web, conferencias, tesis, reportes, mapas y demás. Si tienen sugerencias o hay algún consenso no oficial de como citar otras fuentes en la tesis de biología de la UASD pueden crear [Issues](https://github.com/fpichardom/Plantilla_Tesis_UASD/issues) indicando el formato sugerido, de manera que pueda ser incorporado a la plantilla.
-
+2. De igual manera el reglamento de tesis solo se enfoca en la cita de artículos y libros pero no da indicaciones para páginas web, conferencias, tesis, reportes, mapas y demás. Si tienen sugerencias o hay algún consenso no oficial de como citar otras fuentes en la tesis de biología de la UASD pueden crear [Issues](https://github.com/fpichardom/Plantilla_Tesis_UASD/issues) indicando el formato sugerido, de manera que pueda ser incorporado a la plantilla.
+3. No existe un estilo definitivo de la portada de la tesis, pero si de la información que debe incluir.
 ## Falta por hacer
 
-1. Configurar biblatex siguiendo el reglamento para citar y crear la bibliografía.
-2. Configurar el estilo de la portada.
-3. Crear diversos ejemplos de citas, tablas y figuras.
+2. Configurar el estilo de la portada (estilo preliminar con los datos obligatorios).
 4. ...Cualquier sugerencia de cosas que falten por dar formato o cualquier inquietud o problema es bienvenida.
 
 Para Reportar problemas o inquietudes o hacer sugerencias pueden usar la pestaña [Issues](https://github.com/fpichardom/Plantilla_Tesis_UASD/issues).
