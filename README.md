@@ -15,16 +15,16 @@ Los archivos TeX son archivos de texto sin formato de manera que pueden editarse
 Aunque existen editores especializados para facilitar la escritura en LaTeX.
 Algunos de ellos son [TeXstudio](http://www.texstudio.org/) y [Texmaker](http://www.xm1math.net/texmaker/)
 
-## Bugs conocidos
+## Bugs conocidos (Resueltos)
 
 * Al parecer el la versión 2.10.1 del paquete titlesec tiene un bug.
 Esta es la versión incluida en Texlive 2016.
 Por lo que se incluye entre los archivos las versión 2.10.2 de [titlesec](https://www.ctan.org/pkg/titlesec).
 * La versión 3.3 y 3.4 de [biblatex](https://www.ctan.org/pkg/biblatex) presenta un bug que no permite la separación adecuada de las citas de tipo autor (año).
-Esto es corregido a parti de la versión 3.5.
+Esto es corregido a partir de la versión 3.5.
 En la plantilla incluyo un código que arregla este problema para la versión 3.4.
 Esta línea puede ser comentada si tienen accesso a la versión 3.5+ de [biblatex](https://www.ctan.org/pkg/biblatex).
-NOTA: No he podido arreglarlo para la versión 3.3
+NOTA: No he podido arreglarlo para la versión 3.3. Si usan [Overleaf](https://www.overleaf.com/) no tienen que preocuparse con este bug ya que tiene la versión necesaria de biblatex.
 ## Paquetes utilizados
 
 1. [titlesec](https://www.ctan.org/pkg/titlesec)
